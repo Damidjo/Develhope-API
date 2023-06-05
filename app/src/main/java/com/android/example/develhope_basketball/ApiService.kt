@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("/games")
-    suspend fun fetchData(): Response<ApiResponse>
+    suspend fun fetchData(): ResultResponse
 }

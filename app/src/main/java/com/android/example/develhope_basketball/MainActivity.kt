@@ -1,14 +1,12 @@
-import androidx.appcompat.app.AppCompatActivity
+package com.android.example.develhope_basketball
+
+
 import android.os.Bundle
 import android.util.Log
-import com.android.example.develhope_basketball.ApiClient
-import com.android.example.develhope_basketball.ApiResponse
-import com.android.example.develhope_basketball.ApiService
-import com.android.example.develhope_basketball.R
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,14 +23,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun doWorld() {
         coroutineScope.launch {
-            val response: Response<ApiResponse> = apiService.fetchData()
+            val response: ResultResponse = apiService.fetchData()
 
-            if (response.isSuccessful) {
-                val apiResponse: ApiResponse? = response.body()
+            /*if (response.isSuccessful) {
+                val apiResponse: ResultResponse? = response.body()
                 Log.d("API", "Success: ${response.isSuccessful}")
             } else {
                 Log.e("API", "Error: ${response.errorBody()}")
+
+             */
+            Log.d("test", "$response")
             }
         }
     }
-}
